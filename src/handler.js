@@ -1,6 +1,0 @@
-
-
-
-const handler = (request, response) => {
-    
-}
