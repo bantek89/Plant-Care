@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('assets/cactus-drawing-succulent-5.png');
+  background-repeat: no-repeat;
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
+.heading {
+  text-align: center;
+  color: #4CAF50;
+  font-size: 50px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: -10px;
+  font-family: "Roboto Mono";
+}
