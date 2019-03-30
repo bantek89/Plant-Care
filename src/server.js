@@ -1,7 +1,9 @@
-let http = require('http');
-let server = http.createServer();
+const http = require('http');
+const router = require('./router')
+const server = http.createServer(router);
+const port = '3000'
 
-server.listen(3000, function(){
-    console.log('Sever is listening on port 3000. Ready to accept requests!');
-});
+
+server.listen(port);
+console.log(`server up and running on local port ${port}`)
 

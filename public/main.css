@@ -6,13 +6,14 @@
 body {
   background-image: url('assets/cactus-drawing-succulent-5.png');
   background-repeat: no-repeat;
-  background-position-x: 0;
-  background-position-y: 0;
+  background-attachment: fixed;
+  background-position: bottom left; 
+  background-size: 60vh;
 }
 
 .heading {
   text-align: center;
-  color: #4CAF50;
+  color: #388e3c;
   font-size: 50px;
   padding: 0;
   margin: 0;
