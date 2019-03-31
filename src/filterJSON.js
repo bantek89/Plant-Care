@@ -1,7 +1,7 @@
-const objectifyPlants = JSON => {
-  const obj =  JSON.parse(JSON);
-  return obj
-}
+// const objectifyPlants = json => {
+//   const obj =  JSON.parse(json);
+//   return obj
+// }
 
 const filterPlants = obj => {
     let filteredPlants = [];
@@ -23,6 +23,6 @@ const filterPlants = obj => {
 }
 
 module.exports = {
-    objectifyPlants,
+    // objectifyPlants,
     filterPlants
 }
