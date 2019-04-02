@@ -10,15 +10,18 @@
     <link rel="stylesheet" href="./public/input.css" />
   </head>
   <body>
+      <button id="submit" type="submit">submit</button>
+    <div id="homepage">
+      
     <div class="centerContainer">
         <h1 class="heading">family tree</h1>
-    <form action="/aplace/wherewewanttoprocessthisdata" method="GET">
+        
+    <form action="data" method="GET">
+        
       <div id="searchContainer">
-        <input id="inputBox" list="plant_names" name="plants" placeholder="search" aria-label="This is the autocomplete box for plant names. Suggestions will generate while you type">
-      
-      <datalist class="plant_names" id="plant_names">
-        <option value="search">search for plants here</option>
-      </datalist>
+        <input autocomplete="off" id="inputBox" list="plantNames" name="plants" placeholder="search" aria-label="This is the autocomplete box for plant names. Suggestions will generate while you type">
+      <ul class="plantNames" id="plantNames">
+      </ul>
       <a class="button" href="#">
         <svg id="icons" class="button-icons" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         width="485.213px" height="485.213px" viewBox="0 0 485.213 485.213" style="enable-background:new 0 0 485.213 485.213;"
@@ -46,6 +49,11 @@
         </div>
     </form>
     </div>
+    </div>
+<div id="dataContainer">
+  Next section
+  <button id="again" type="submit">search again</button>
+</div>
     <script src="public/dom.js"></script>
   </body>
 </html>

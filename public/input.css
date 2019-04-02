@@ -1,11 +1,11 @@
 .centerContainer{
     position: absolute;
-    top: 40%;
-    left: 50%;
+    top: 35%;
+    left: 48%;
     transform: translate(-50%, -50%);
 }
 
-input {
+#inputBox {
     left: 50%;
     padding: 20px 15px;
     padding-right: 60px;
@@ -14,7 +14,7 @@ input {
     box-sizing: border-box;  
     width: 50vw;
     min-width: 250px;
-    border: 4px solid #BA7BFF;
+    border: 4px solid rgb(81, 180, 86);
     border-radius: 5px;  
     -webkit-transition: width 0.5s ease-in-out;
     transition: width 0.5s ease-in-out;
@@ -22,9 +22,9 @@ input {
     font-family: "Roboto Mono";
 }
 
-input:focus {
+#inputBox:focus {
     width: 70vw;
-    border: 4px solid #388E3C;
+    border: 4px solid #BA7BFF;
 }
 
 input:focus .button {
@@ -37,7 +37,7 @@ input:focus .button {
 
 .button {
     padding: 10px;
-    padding-top: 20px;
+    padding-top: 50px;
     background: transparent;
     position: absolute;
     right: 10px;
@@ -56,3 +56,78 @@ input:focus .button {
 .plant_list {
     display: none;
 }
+
+
+ul {
+    position: fixed;
+    z-index: 10;
+    width: 70vw;
+    /* border-bottom: 4px solid #388E3C;
+    border-top: none; */
+    margin: 0;
+    padding: 0;
+    border-radius: 15px;
+    background-color: white;
+    -webkit-box-shadow: 0 6px 4px -4px rgb(122, 121, 121);
+	   -moz-box-shadow: 0 6px 4px -4px rgb(122, 121, 121);
+	        box-shadow: 0 6px 4px -4px rgb(122, 121, 121);
+}
+
+li {
+    list-style: none;
+    z-index: 10;
+}
+
+button:hover {
+    /* background-color: rgba(186, 123, 255, 0.3); */
+    background-color: rgba(103, 218, 108, 0.1)
+
+}
+
+button {
+    width: 70vw;
+    z-index: 10;
+    background-color: white;
+    border: none;
+    margin: 0;
+    padding: 10px;
+    padding-left: 20px;
+    padding-top: 20px;
+    list-style: none;
+    text-align: left;
+    letter-spacing: 0.2em;
+    font-family: "Roboto Mono";
+    text-emphasis: filled circle rgb(198, 158, 240);
+    text-emphasis-position: under right;
+    -webkit-text-emphasis: filled circle  rgb(198, 158, 240);
+    -webkit-text-emphasis-position: under right;
+    
+}
+
+#submit {
+    width: 130px;
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    margin-top: 80px;
+    padding: 0;
+    background-color: #4CAF50; /* Green */
+    border-radius: 5px;  
+    border: none;
+    color: white;
+    font-family: "Roboto Mono";
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-text-emphasis: filled circle white;
+}
+
+#submit:hover {
+    background-color: #BA7BFF;
+    -webkit-text-emphasis: filled circle white;
+}
+

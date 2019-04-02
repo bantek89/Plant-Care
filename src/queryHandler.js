@@ -5,12 +5,12 @@ const objJSON = require('./JSON/plants.json');
 const allPlantsArray = filters.filterPlants(objJSON);
 
 const queryHandler = function (request, response, url){
-    let value = url.split('/query')[1];
+    let value = url.toLowerCase().split('/query')[1];
     let results = search(value, allPlantsArray);
+    
+    let choppedResults = results.slice(0, 5)
 
-    let tenResults = results.slice(0, 10)
-
-    response.end(JSON.stringify(tenResults));
+    response.end(JSON.stringify(choppedResults));
 }
 
 module.exports = queryHandler;
