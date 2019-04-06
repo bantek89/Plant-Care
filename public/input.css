@@ -1,7 +1,7 @@
 .centerContainer{
     position: absolute;
-    top: 35%;
-    left: 48%;
+    top: 25%;
+    left: 51%;
     transform: translate(-50%, -50%);
 }
 
@@ -108,8 +108,8 @@ button {
     width: 130px;
     z-index: 0;
     position: absolute;
-    top: 50%;
-    left: 48%;
+    top: 40%;
+    left: 51%;
     transform: translate(-50%, -50%);
     margin-top: 80px;
     padding: 0;
@@ -131,5 +131,33 @@ button {
     -webkit-text-emphasis: filled circle white;
 }
  #dataFill {
+     
+     display: grid;
     letter-spacing: 0.2em;
+    grid-column-gap: 30px;
+    grid-row-gap: 20px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 30px 40px;
+    text-align: center;
+
+ }
+
+ .results {
+    background-color: rgba(103, 218, 108, 0.9);
+    /* width: 50px; */
+    align-items: center;
+ }
+
+ .title {
+
+    background-color: rgba(103, 218, 108, 0.8);
+    /* width: 50px; */
+ }
+
+ #dataContainer {
+    z-index: -1;
+    position: fixed;
+     bottom: 100px;
+     width: 80vw;
+     left: 8%;
  }

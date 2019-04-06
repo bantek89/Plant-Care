@@ -37,40 +37,30 @@ document.getElementById("submit").addEventListener("click", function(e) {
 
   let submitItem = searchBox.value;
   if (searchBox.value !== ''){
-    document.getElementById("dataContainer").scrollIntoView();
+    newSearch('/plants=', submitItem, (xhr, value) => {
+      let data = JSON.parse(xhr.responseText);
+      let displayData = document.getElementById('dataFill')
+  
+      console.log(data['Family'])
+      
+      appendElement('Family', data['Family']);
+      appendElement('Genus', data['Genus']);
+      appendElement('Species', data['Species']);
+      appendElement('Common name', data['Common_Name']);
+    })
   } else {
       alert('please search for a plant!')
   }
 
-  newSearch('/plants=', submitItem, (xhr, value) => {
-    let data = JSON.parse(xhr.responseText);
-    let displayData = document.getElementById('dataFill')
-
-    console.log(data['Family'])
-    
-    appendElement('Family', data['Family']);
-    appendElement('Genus', data['Genus']);
-    appendElement('Species', data['Species']);
-    appendElement('Common name', data['Common_Name']);
-  })
+ 
 
 });
 
 const appendElement = (element, value) => {
-    let displayData = document.getElementById('dataFill')
     let key = document.getElementById(element);
-    let fill = document.createElement('div');
-    fill.innerText = value;
-    key.appendChild(fill);
-    displayData.appendChild(key);
-
+    key.innerText = value;
 }
 
-document.getElementById("again").addEventListener("click", function(e) {
-  document.getElementById("homepage").scrollIntoView();
-  searchBox.value = ''
-  searchBox.focus();
-});
 
 const newSearch = function(endpoint, value, cb) {
   const xhr = new XMLHttpRequest();

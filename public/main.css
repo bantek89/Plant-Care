@@ -7,6 +7,7 @@
 
 body {
   background-image: url('assets/cactus-drawing-succulent-5.png');
+  
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: bottom left; 
@@ -25,12 +26,12 @@ body {
   font-family: "Roboto Mono";
 }
 
-#homepage {
+/* #homepage {
   height: 100vh;
   z-index: -5;
-}
+} */
 
-#dataContainer {
+/* #dataContainer {
   height: 100vh;
   scroll-behavior: smooth;
-}
+} */
