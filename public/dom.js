@@ -3,56 +3,82 @@ let searchBox = document.getElementById("inputBox");
 document.getElementById("inputBox").addEventListener("input", function(e) {
   let searchItem = e.target.value;
 
-  newSearch(searchItem);
+  newSearch('/query', searchItem, (xhr, value) => {
+    let responseList = document.querySelector(".plantNames");
+
+    clearList(responseList);
+
+    let searchArray = JSON.parse(xhr.responseText).map(x => {
+      console.log(x);
+      return x;
+    });
+
+    searchArray.map(x => {
+      let listItem = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerText = x;
+      button.addEventListener("click", e => {
+        selectPlant(button.innerText);
+        clearList(responseList);
+      });
+      listItem.appendChild(button);
+      responseList.appendChild(listItem);
+    });
+
+    if (value === "") {
+      console.log("search is empty");
+      clearList(responseList);
+    }
+  });
 });
 
 document.getElementById("submit").addEventListener("click", function(e) {
   e.preventDefault();
 
   let submitItem = searchBox.value;
-  console.log(submitItem);
   if (searchBox.value !== ''){
     document.getElementById("dataContainer").scrollIntoView();
   } else {
       alert('please search for a plant!')
   }
+
+  newSearch('/plants=', submitItem, (xhr, value) => {
+    let data = JSON.parse(xhr.responseText);
+    let displayData = document.getElementById('dataFill')
+
+    console.log(data['Family'])
+    
+    appendElement('Family', data['Family']);
+    appendElement('Genus', data['Genus']);
+    appendElement('Species', data['Species']);
+    appendElement('Common name', data['Common_Name']);
+  })
+
 });
+
+const appendElement = (element, value) => {
+    let displayData = document.getElementById('dataFill')
+    let key = document.getElementById(element);
+    let fill = document.createElement('div');
+    fill.innerText = value;
+    key.appendChild(fill);
+    displayData.appendChild(key);
+
+}
 
 document.getElementById("again").addEventListener("click", function(e) {
   document.getElementById("homepage").scrollIntoView();
+  searchBox.value = ''
+  searchBox.focus();
 });
 
-const newSearch = function(value) {
+const newSearch = function(endpoint, value, cb) {
   const xhr = new XMLHttpRequest();
-  let searchURL = "/query" + value;
+  let searchURL = endpoint + value;
 
   xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      let responseList = document.querySelector(".plantNames");
-
-      clearList(responseList);
-
-      let searchArray = JSON.parse(xhr.responseText).map(x => {
-        console.log(x);
-        return x;
-      });
-
-      searchArray.map(x => {
-        let listItem = document.createElement("li");
-        let button = document.createElement("button");
-        button.innerText = x;
-        button.addEventListener("click", e => {
-          selectPlant(button.innerText);
-          clearList(responseList);
-        });
-        listItem.appendChild(button);
-        responseList.appendChild(listItem);
-      });
-
-      if (value === "") {
-        console.log("search is empty");
-        clearList(responseList);
-      }
+     cb(xhr, value);
     }
   };
 

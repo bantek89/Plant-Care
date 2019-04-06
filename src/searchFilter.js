@@ -30,4 +30,31 @@ const search = (input, array) => {
 
 }
 
-module.exports = search
+const searchDetails = (input, array) => {
+    let detailsObj = {};
+
+    let details = array.map((x, i) => {
+        if (x.Species === input){
+            detailsObj['Species'] = input
+            detailsObj['Common_Name'] = array[i]['Common_Name'];
+            detailsObj['Family'] = array[i]['Family'];
+            detailsObj['Genus'] = array[i]['Genus'];
+        }
+
+        if (x['Common_Name'] === input){
+            detailsObj['Species'] = array[i]['Species']
+            detailsObj['Common_Name'] = input
+            detailsObj['Family'] = array[i]['Family'];
+            detailsObj['Genus'] = array[i]['Genus']
+        }
+        
+    })
+
+    return detailsObj
+
+}
+
+module.exports = {
+    search,
+    searchDetails
+}

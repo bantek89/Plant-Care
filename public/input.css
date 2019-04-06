@@ -130,4 +130,6 @@ button {
     background-color: #BA7BFF;
     -webkit-text-emphasis: filled circle white;
 }
-
+ #dataFill {
+    letter-spacing: 0.2em;
+ }
