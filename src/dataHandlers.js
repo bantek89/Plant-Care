@@ -1,5 +1,5 @@
 const search = require('./searchFilter');
-const filters = require('./filterJson');
+const filters = require('./filterJSON.js');
 const objJSON = require('./JSON/plants.json');
 
 const allPlantsArray = filters.filterPlants(objJSON);
